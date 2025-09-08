@@ -52,22 +52,13 @@ npm install
 ```
 
 3. Set up environment variables
+   Create a `.env` file in the backend directory with the following variables:
 
-   **Backend**: Copy `.env.example` to `.env` in the backend directory and update with your values:
-
-   ```
-   PORT=4000
-   MONGO_URI=your_mongodb_connection_string
-   TOTP_ISSUER=SpeaksyAuth
-   JWT_SECRET=your_secure_random_string
-   ```
-
-   **Frontend**: Copy `.env.example` to `.env` in the frontend directory:
-
-   ```
-   REACT_APP_API_URL=http://localhost:4000/api/auth
-   REACT_APP_TOTP_REFRESH_INTERVAL=1000
-   ```
+```
+PORT=4000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
 
 4. Install frontend dependencies
 
@@ -106,19 +97,6 @@ npm start
 4. Codes automatically refresh every 30 seconds with a countdown timer
 
 ## Security Considerations
-
-1. Environment Variables
-   - The `.env` files contain sensitive information and are excluded from version control via `.gitignore`
-   - Use strong, randomly generated values for the JWT_SECRET
-   - Keep your MongoDB connection string private
-2. JWT Authentication
-
-   - JWT tokens are used for securing API endpoints
-   - Tokens expire after 7 days by default
-
-3. Password Security
-   - Passwords are hashed using bcrypt before storage
-   - The frontend never stores plaintext passwords
 
 - All secret keys are stored in the database using encryption
 - JWT tokens are used for API authentication

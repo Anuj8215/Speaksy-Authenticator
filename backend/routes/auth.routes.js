@@ -8,6 +8,11 @@ const auth = require("../middleware/auth.middleware");
 
 const router = express.Router();
 
+/**
+ * @route   POST /api/auth/register
+ * @desc    Register a new user
+ * @access  Public
+ */
 router.post("/register", async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -49,6 +54,11 @@ router.post("/register", async (req, res) => {
   }
 });
 
+/**
+ * @route   POST /api/auth/login
+ * @desc    Login user and get token
+ * @access  Public
+ */
 router.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -84,6 +94,11 @@ router.post("/login", async (req, res) => {
   }
 });
 
+/**
+ * @route   POST /api/auth/register-service
+ * @desc    Register a new service with manual secret entry
+ * @access  Private
+ */
 router.post("/register-service", auth, async (req, res) => {
   try {
     const { name, secret, issuer } = req.body;
@@ -120,6 +135,11 @@ router.post("/register-service", auth, async (req, res) => {
   }
 });
 
+/**
+ * @route   POST /api/auth/register-service-scan
+ * @desc    Register a new service from scanned QR code
+ * @access  Private
+ */
 router.post("/register-service-scan", auth, async (req, res) => {
   try {
     const { otpauth_url } = req.body;
@@ -153,6 +173,11 @@ router.post("/register-service-scan", auth, async (req, res) => {
   }
 });
 
+/**
+ * @route   GET /api/auth/services
+ * @desc    Get all services with current TOTP codes
+ * @access  Private
+ */
 router.get("/services", auth, async (req, res) => {
   try {
     const services = req.user.services.map((svc) => {
@@ -185,6 +210,11 @@ router.get("/services", auth, async (req, res) => {
   }
 });
 
+/**
+ * @route   DELETE /api/auth/services/:id
+ * @desc    Delete a service
+ * @access  Private
+ */
 router.delete("/services/:id", auth, async (req, res) => {
   try {
     const serviceIndex = req.user.services.findIndex(
@@ -205,6 +235,11 @@ router.delete("/services/:id", auth, async (req, res) => {
   }
 });
 
+/**
+ * @route   POST /api/auth/verify
+ * @desc    Verify a TOTP code for a service
+ * @access  Private
+ */
 router.post("/verify", auth, async (req, res) => {
   try {
     const { serviceId, token } = req.body;
@@ -231,6 +266,11 @@ router.post("/verify", auth, async (req, res) => {
   }
 });
 
+/**
+ * @route   GET /api/auth/user
+ * @desc    Get current user info
+ * @access  Private
+ */
 router.get("/user", auth, async (req, res) => {
   try {
     res.json({
