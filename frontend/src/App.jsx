@@ -1,33 +1,51 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Register from "./pages/Register";
-import AddService from "./pages/AddService";
-import TotpList from "./pages/TotpList";
-import Verify from "./pages/Verify";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Login from "./components/Auth/Login.jsx";
+import Register from "./components/Auth/Register.jsx";
+import Dashboard from "./components/Dashboard/Dashboard.jsx";
+import { PrivateRoute, PublicRoute } from "./utils/ProtectedRoute.jsx";
+import "./App.css";
 
-export default function App() {
+function App() {
   return (
     <Router>
-      <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-        <h1>Speaksy Auth</h1>
-        <nav style={{ marginBottom: "20px" }}>
-          <Link to="/register" style={{ marginRight: "10px" }}>
-            Register
-          </Link>
-          <Link to="/add-service" style={{ marginRight: "10px" }}>
-            Add Service
-          </Link>
-          <Link to="/totp-list">TOTP List</Link>
-          <Link to="/verify" style={{ marginLeft: "10px" }}>
-            Verify Code
-          </Link>
-        </nav>
+      <div className="app">
         <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/add-service" element={<AddService />} />
-          <Route path="/totp-list" element={<TotpList />} />
-          <Route path="/verify" element={<Verify />} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute>
+                <Register />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </div>
     </Router>
   );
 }
+
+export default App;
