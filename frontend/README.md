@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Speaksy Authenticator Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The client-side application for the Speaksy Authenticator TOTP-based authentication system.
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+This React application provides the user interface for managing and viewing TOTP authentication codes. It features a responsive design with modern animations and a security-focused aesthetic.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **User Authentication**: Login and registration system
+- **Dashboard**: View all your TOTP authentication services in one place
+- **Real-time TOTP Codes**: Codes update automatically with visual countdown
+- **Service Management**: Add and remove authentication services
+- **Responsive Design**: Works on mobile and desktop devices
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies
 
-### `npm test`
+- **React**: UI library
+- **React Router**: Client-side routing
+- **Axios**: API communication
+- **React Circular Progressbar**: Visual countdown for TOTP codes
+- **Modern CSS**: Custom styling with animations
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Install dependencies
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Start development server
+npm start
+```
 
-### `npm run eject`
+This runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Production Build
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+# Create production build
+npm run build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This builds the app for production to the `build` folder, optimized for the best performance with minified files and hashed filenames.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Project Structure
+
+```
+frontend/
+├── public/              # Static files
+│   └── assets/          # Images and other assets
+├── src/                 # Source code
+│   ├── components/      # React components
+│   │   ├── Auth/        # Authentication components
+│   │   └── Dashboard/   # Dashboard components
+│   ├── services/        # API services
+│   ├── utils/           # Utility functions
+│   ├── App.jsx          # Main App component
+│   ├── App.css          # Global styles
+│   └── index.jsx        # Application entry point
+└── package.json         # Dependencies and scripts
+```
+
+## Key Components
+
+### Authentication
+
+- **Login.jsx**: User login form
+- **Register.jsx**: User registration form
+- **Auth.css**: Styling for auth components
+
+### Dashboard
+
+- **Dashboard.jsx**: Main dashboard view
+- **TOTPCard.jsx**: Component to display TOTP code for a service
+- **AddServiceModal.jsx**: Modal for adding new services
+
+## API Integration
+
+The frontend communicates with the backend using Axios. The main services are:
+
+- **auth.jsx**: Authentication and service management API calls
+
+## Security Features
+
+- **JWT Token Management**: Stored in memory (not in localStorage)
+- **Protected Routes**: Prevents unauthorized access to the dashboard
+- **Authentication Middleware**: Ensures API requests are authenticated
+- **Code Expiry**: Visual indication of code validity
+
+## Customization
+
+The UI is built with a modular component structure and clean CSS, making it easy to customize colors, fonts, and layouts. The primary styling file is `App.css`.
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can learn more about React in the [React documentation](https://reactjs.org/).

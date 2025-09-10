@@ -94,7 +94,7 @@ const AddServiceModal = ({ onClose, onServiceAdded }) => {
     <div className="modal-overlay">
       <div className="modal-content">
         <div className="modal-header">
-          <h2>Add Security Pass</h2>
+          <h2>Add Security Pass 🧑🏻‍💻</h2>
           <button className="close-btn" onClick={handleModalClose}>
             ×
           </button>
@@ -105,13 +105,13 @@ const AddServiceModal = ({ onClose, onServiceAdded }) => {
             className={`tab-btn ${activeTab === "manual" ? "active" : ""}`}
             onClick={() => setActiveTab("manual")}
           >
-            <span className="tab-icon">✏️</span> Manual Entry
+            <span className="tab-icon"></span> Manual Entry
           </button>
           <button
             className={`tab-btn ${activeTab === "scan" ? "active" : ""}`}
             onClick={() => setActiveTab("scan")}
           >
-            <span className="tab-icon">🔗</span> Enter OTP URL
+            <span className="tab-icon"></span> Enter OTP URL
           </button>
         </div>
 
