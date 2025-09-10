@@ -39,6 +39,5 @@ Thumbs.db
 /frontend/build/
 /frontend/dist/
 
-# Package lock files
-package-lock.json
-yarn.lock
+# Vercel
+.vercel

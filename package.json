@@ -1,6 +1,18 @@
 {
+  "name": "speaksy-authenticator",
+  "version": "1.0.0",
+  "description": "TOTP-based authentication system with React frontend and serverless backend",
+  "scripts": {
+    "build": "cd frontend && npm run build",
+    "dev": "cd frontend && npm run dev",
+    "start": "cd frontend && npm run preview",
+    "test:api": "node scripts/test-api.js"
+  },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.19.0",
-    "react-qr-scanner": "^1.0.0-alpha.11"
+    "mongoose": "^8.18.0",
+    "speakeasy": "^2.0.0"
   }
 }

@@ -193,6 +193,35 @@ speaksy-auth/
 - Ensure all tests pass before submitting pull requests
 - Keep dependencies updated and minimal
 
+## Deployment
+
+### Vercel Deployment (Recommended)
+
+This project is optimized for deployment on Vercel with serverless functions.
+
+**Quick Deploy:**
+1. Fork this repository
+2. Connect to Vercel
+3. Set environment variables in Vercel dashboard
+4. Deploy!
+
+For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
+**Required Environment Variables:**
+```
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key_here
+JWT_EXPIRATION=7d
+TOTP_ISSUER=SpeaksyAuth
+TOTP_DIGITS=6
+TOTP_STEP=30
+```
+
+### Alternative Deployment Options
+
+- **Frontend**: Netlify, Vercel, GitHub Pages
+- **Backend**: Heroku, Railway, Render, DigitalOcean
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
